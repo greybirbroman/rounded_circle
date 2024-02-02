@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+import gsap from 'gsap'
 
 const slideFrom = (target: string) => {
   return gsap.from(target, {
@@ -16,8 +16,22 @@ const slideTo = (target: string) => {
   });
 };
 
+const rotateTo = (target: string, angle: number, duration: number) => {
+  return gsap.to(target, {
+    rotation: angle,
+    duration: duration,
+    ease: 'power4.out',
+  });
+};
 
-export {
-    slideFrom,
-    slideTo
-}
+const opacityFomTo = (target: string) => {
+  return gsap.fromTo(
+    target,
+    {
+      opacity: 0,
+    },
+    { opacity: 1, duration: 1 },
+  );
+};
+
+export { slideFrom, slideTo, rotateTo, opacityFomTo };

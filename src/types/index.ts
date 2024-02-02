@@ -10,3 +10,8 @@ export interface IEvent {
   year_to: number | string;
   list: IEventList[];
 }
+
+export type AnimatedCircleProps = {
+  numberOfDots: number;
+  circleRadius: number;
+}

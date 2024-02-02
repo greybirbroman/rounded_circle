@@ -1,72 +1,42 @@
 import './AnimatedCircle.scss';
-import React, { useState, useEffect, useCallback } from 'react';
-import { gsap } from 'gsap';
+import React, { useEffect, useCallback } from 'react';
+import { AnimatedCircleProps } from '../../types';
 import { useEvents } from '../../context/EventsContext';
+import useAnimatedCircle from '../../utils/hooks/useAnimatedCircle';
+import { opacityFomTo, rotateTo } from '../../utils/gsap';
 
-interface AnimatedCircleProps {
-  numberOfDots: number;
-  circleRadius: number;
-}
-
-const AnimatedCircle: React.FC<AnimatedCircleProps> = ({
+const AnimatedCircle = ({
   numberOfDots,
   circleRadius,
-}) => {
-  const { findEventByIndex, selectedEvent } = useEvents();
-  const [selectedDot, setSelectedDot] = useState<number>(1);
-  const [hovered, setHovered] = useState<number | null>(1);
-  const [shoudShowCategory, setShoudShowCategory] = useState(true);
+}: AnimatedCircleProps) => {
+  const { selectedEvent } = useEvents();
+
+  const {
+    width,
+    height,
+    initialAngle,
+    selectedDot,
+    hovered,
+    handleDotClick,
+    handleMouseOn,
+    handleMouseOut,
+  } = useAnimatedCircle({ numberOfDots, circleRadius });
 
   const rotateToSelectedDot = useCallback(() => {
-    // const initialAngle = -315 + (360 / numberOfDots) * selectedDot;
-    const initialAngle = (360 / numberOfDots) * selectedDot;
-
-    gsap.to('.circle', {
-      rotation: -initialAngle,
-      duration: 1,
-      ease: 'power4.out',
-    });
-    gsap.to('.dot', {
-      rotation: initialAngle,
-      duration: 0.35,
-      ease: 'power4.out',
-    });
-    gsap.fromTo(
-      '.dot-category',
-      {
-        opacity: 0,
-      },
-      { opacity: 1, duration: 1 },
-    );
+    rotateTo('.circle', -initialAngle, 1);
+    rotateTo('.dot', initialAngle, 0.35);
+    opacityFomTo('.dot-category');
   }, [selectedDot, numberOfDots]);
 
   useEffect(() => {
     rotateToSelectedDot();
   }, [rotateToSelectedDot]);
 
-  const handleDotClick = (dotIndex: number) => {
-    setShoudShowCategory(true);
-    setSelectedDot(dotIndex);
-    findEventByIndex(dotIndex);
-  };
-
-  const handleMouseOn = (dotIndex: number) => {
-    setHovered(dotIndex);
-  };
-
-  const handleMouseOut = () => {
-    setHovered(null);
-  };
-
-  const width = circleRadius * 2;
-  const height = circleRadius * 2;
-
   return (
     <>
       <div className="circle" style={{ width: width, height: height }}>
         <div className="dots-container">
           {[...Array(numberOfDots)].map((_, index) => {
-            // const angle = -315 + (360 / numberOfDots) * index;
             const angle = (360 / numberOfDots) * index;
 
             const radians = (angle * Math.PI) / 180;
@@ -94,7 +64,7 @@ const AnimatedCircle: React.FC<AnimatedCircleProps> = ({
           })}
         </div>
       </div>
-      {shoudShowCategory ? (
+      {selectedEvent ? (
         <p className="dot-category">{selectedEvent?.category}</p>
       ) : null}
     </>
