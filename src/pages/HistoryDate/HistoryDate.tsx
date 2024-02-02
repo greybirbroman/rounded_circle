@@ -3,16 +3,15 @@ import PageWrapper from '../../hoc/PageWrapper';
 import {
   AnimatedTimePeriodBar,
   AnimatedCircle,
-  Pagination,
   SwiperCards,
   GridOverlay,
   PageTitle,
+  Devider,
 } from '../../components';
 import { useEvents } from '../../context/EventsContext';
 
 const HistoryDate = () => {
-  const { events, selectedEvent } = useEvents();
-  const totalEvents = events.length;
+  const { totalEvents, selectedEvent } = useEvents();
   const selectedPeriodEvents = selectedEvent ? selectedEvent.list : [];
 
   return (
@@ -23,7 +22,10 @@ const HistoryDate = () => {
         from={selectedEvent?.year_from}
         to={selectedEvent?.year_to}
       />
-      <div className="devider" />
+      <Devider />
+      {/* { numberOfDots устанавливаем по количеству евентов,
+          по заданию от 2 до 6. В данном случае ограничений не установленно. Демонстрация с 6 событиями. } */}
+      {/* { circleRadius устанавливаем согласшно ширине макета / 2 } */}
       <AnimatedCircle numberOfDots={totalEvents} circleRadius={265} />
       <SwiperCards list={selectedPeriodEvents} />
     </>

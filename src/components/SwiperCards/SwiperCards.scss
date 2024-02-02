@@ -1,24 +1,48 @@
-@import '../../variables.scss';
+@import '../../styles/variables.scss';
 
 .swiper {
+  margin-top: 50px;
   display: flex;
   gap: 50px;
   flex-direction: column-reverse;
   width: 100%;
-  padding-bottom: 20px;
   z-index: 2;
 
   .swiper-slide {
+    width: calc(100% / 1.5);
+    max-width: 320px;
     display: flex;
     gap: 20px;
-
   }
-  // .swiper-pagination {
-  //   position: absolute;
-  //   bottom: 0;
-  // }
 
-  @media screen and(max-width: 992px){
+  .swiper-slide-active {
+    opacity: 1 !important;
+  }
+
+  .swiper-slide-prev,
+  .swiper-slide-next {
+    @media screen and (max-width: 767px) {
+      opacity: 0.5 !important;
+    }
+  }
+
+  .swiper-pagination {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    .swiper-pagination-bullet-active {
+      background-color: $blue-black;
+    }
+    @media screen and(max-width: 992px) {
+      display: block;
+    }
+  }
+
+  @media screen and(max-width: 992px) {
     flex-direction: column;
+  }
+
+  @media screen and(max-width: 500px) {
+    padding-bottom: 20px;
   }
 }

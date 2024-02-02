@@ -1,15 +1,18 @@
 import React from 'react';
 import './GridOverlay.scss';
 
-interface GridOverlayProps {}
+const GridOverlay: React.FC = () => {
+  const renderGridCells = () => {
+    const count = 4;
+    const cells = new Array(count).fill(null).map((_, index) => (
+      <div key={index}></div>
+    ));
+    return cells;
+  };
 
-const GridOverlay: React.FC<GridOverlayProps> = () => {
   return (
     <div className="overlay">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      {renderGridCells()}
     </div>
   );
 };

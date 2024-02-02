@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@import '../../styles/variables.scss';
 
 .page__container {
   display: flex;
@@ -13,7 +13,7 @@
     padding: 0;
     width: 353px;
     color: $blue-black;
-    font-family: 'PT Sans';
+    font-family: $font-primary;
     font-size: 56px;
     font-style: normal;
     font-weight: 700;

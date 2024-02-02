@@ -35,7 +35,7 @@ const AnimatedCircle = ({
   return (
     <>
       <div className="circle" style={{ width: width, height: height }}>
-        <div className="dots-container">
+        <div className="dots-container" >
           {[...Array(numberOfDots)].map((_, index) => {
             const angle = (360 / numberOfDots) * index;
 

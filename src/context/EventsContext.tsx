@@ -4,7 +4,7 @@ import { events as data } from '../utils';
 
 interface EventsContextProps {
   events: IEvent[];
-  totalEvents: number | null;
+  totalEvents: number;
   selectedEvent: IEvent | null;
   setSelectedEvent: React.Dispatch<React.SetStateAction<IEvent | null>>;
   findEventByIndex: (index: number) => void;
@@ -39,13 +39,12 @@ export const EventsContextProvider = ({ children }: {children: React.ReactNode})
   );
 };
 
-// Создаем хук для получения значения контекста
 export const useEvents = () => {
   const context = useContext(EventsContext);
 
   if (!context) {
     throw new Error(
-      'useEvents must be used within an EventsContextProvider',
+      'useEvents должен использоваться внутри EventsContextProvider.',
     );
   }
 

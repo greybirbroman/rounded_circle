@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@import '../../styles/variables.scss';
 
 .pagination {
   width: fit-content;
@@ -6,7 +6,6 @@
   flex-direction: column;
   align-items: start;
   gap: 20px;
-
 
   .pagination__counter {
     color: $blue-black;
@@ -18,12 +17,12 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    
+
     .pagination__button {
-        width: 50px;
-        height: 50px;
-        border: none;
-        transition: all 0.35s ease-in-out;
+      width: 50px;
+      height: 50px;
+      border: none;
+      transition: all 0.35s ease-in-out;
       &:hover {
         cursor: pointer;
         opacity: 0.7;
@@ -35,14 +34,27 @@
       &:disabled {
         opacity: 0.5;
       }
+      @media screen and (max-width: 500px) {
+        width: 25px;
+        height: 25px;
+      }
     }
 
     .button_prev {
-      background-image: url(../../assets/icons/nav_button_prev.svg);
+      background: url(../../assets/icons/nav_button_prev.svg) no-repeat center;
+
+      @media screen and (max-width: 500px) {
+        background: url(../../assets/icons/nav_button_prev_small.svg) no-repeat
+          center;
+      }
     }
 
     .button_next {
-      background-image: url(../../assets/icons/nav_button_next.svg);
+      background: url(../../assets/icons/nav_button_next.svg) no-repeat center;
+      @media screen and (max-width: 500px) {
+        background: url(../../assets/icons/nav_button_next_small.svg) no-repeat
+          center;
+      }
     }
   }
 }

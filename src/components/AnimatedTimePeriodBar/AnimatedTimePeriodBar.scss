@@ -1,4 +1,4 @@
-@import '../../variables.scss';
+@import '../../styles/variables.scss';
 
 .year__container {
   max-width: 973px;
@@ -26,13 +26,14 @@
     color: $accent-pink;
     background-color: transparent;
   }
+
   @media screen and (max-width: 992px) {
-    max-width: 500px;
-    font-size: 100px;
+    max-width: 350px;
+    font-size: 76px;
     position: relative;
     top: 0;
     left: 0;
-   transform: none;
+    transform: none;
   }
 
   @media screen and (max-width: 500px) {
@@ -41,6 +42,4 @@
     line-height: normal;
     letter-spacing: -1.12px;
   }
-  
-
 }
