@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.page__container {
+.page-title__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,7 +9,7 @@
   gap: 78px;
   z-index: 3;
 
-  .page__title {
+  .page-title {
     margin: 0;
     padding: 0;
     width: 353px;
