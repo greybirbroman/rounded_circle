@@ -29,6 +29,7 @@ const HistoryDatesPage = () => {
       {/* { circleRadius устанавливаем согласшно ширине макета / 2 } */}
       <AnimatedCircle numberOfDots={totalEvents} circleRadius={265} />
       <SwiperCards list={selectedPeriodEvents} />
+      
     </>
   );
 };
