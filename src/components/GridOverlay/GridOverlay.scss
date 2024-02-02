@@ -1,0 +1,43 @@
+@import '../../variables.scss';
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  z-index: 2;
+  background-color: transparent;
+  // width: 100vw;
+  // max-width: 1400px;
+
+  > :nth-child(1) {
+    border: 1px solid $blue-black-opacity;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  > :nth-child(2) {
+    border: 1px solid $blue-black-opacity;
+    border-top: none;
+    border-bottom: none;
+  }
+
+  > :nth-child(3) {
+    border: 1px solid $blue-black-opacity;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  > :nth-child(4) {
+    border: 1px solid $blue-black-opacity;
+    border-bottom: none;
+  }
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}

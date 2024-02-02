@@ -1,0 +1,18 @@
+.page-wrapper {
+  width: 100vw;
+  max-width: 1400px;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 170px 80px 104px;
+
+  @media screen and(max-width: 992px) {
+    padding: 100px 40px 40px;
+  }
+  @media screen and(max-width: 500px) {
+    padding: 59px 20px 13px;
+  }
+}
