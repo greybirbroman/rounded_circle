@@ -1,38 +1,37 @@
-import React, { useCallback, useEffect } from 'react';
 
+import React, { useCallback, useEffect } from 'react';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination as Pagin } from 'swiper/modules';
-import Card from '../Card/Card';
-import { IEventList } from '../../types';
-import useIsMobileResolution from '../../utils/hooks/useIsMobile';
-import gsap from 'gsap'
-import Pagination from '../Pagination/Pagination';
 
 
 import './SwiperCards.scss';
+
+import Card from '../Card/Card';
+import { IEventList } from '../../types';
+import useIsMobileResolution from '../../utils/hooks/useIsMobile';
+import Pagination from '../Pagination/Pagination';
+import { useEvents } from '../../context/EventsContext';
+import { slideFrom, slideTo } from '../../utils/gsap';
+
+
 
 interface ISwiperCards {
   list: IEventList[] | [];
 }
 
 const SwiperCards = ({ list }: ISwiperCards) => {
+
   const isMobile = useIsMobileResolution({ mobileResolution: 992 });
+  const { selectedEvent, totalEvents } = useEvents()
+
 
   const getAnimationAfterUpdate = useCallback(() => {
-    gsap.from('.swiper', {
-      y: - 20,
-      opacity: 0,
-    });
-    gsap.to('.swiper', {
-      y: 0,
-      opacity: 1,
-      duration: 1.5,
-      ease: 'power4.out',
-    });
+   slideFrom('.swiper-slide')
+   slideTo('.swiper-slide')
   } ,[list])
 
   useEffect(() => {
@@ -55,7 +54,6 @@ const SwiperCards = ({ list }: ISwiperCards) => {
         },
       }}
       pagination={{clickable: true}}
-
       className='swiper'
     >
       {list.map((event: IEventList) => (
@@ -63,7 +61,7 @@ const SwiperCards = ({ list }: ISwiperCards) => {
           <Card title={event.title} year={event.year} />
         </SwiperSlide>
       ))}
-     <Pagination currentPage={1} totalPages={6} />
+  <Pagination currentPage={selectedEvent?.id} totalPages={totalEvents} />
     </Swiper>
   );
 };

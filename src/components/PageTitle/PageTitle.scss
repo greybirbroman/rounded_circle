@@ -1,11 +1,10 @@
 @import '../../variables.scss';
 
 .page__container {
-  position: absolute;
-  left: 0;
   display: flex;
   justify-content: space-between;
   align-self: start;
+  margin-left: -80px;
   gap: 78px;
   z-index: 3;
 
@@ -21,15 +20,15 @@
     line-height: 120%;
 
     @media screen and (max-width: 992px) {
-      margin-left: 40px;
+      margin-left: 80px;
       font-size: 36px;
-    width: 123px;
-
+      width: 123px;
+      position: relative;
     }
     @media screen and (max-width: 550px) {
-      margin-left: 20px;
+      margin-left: 80px;
       font-size: 20px;
+      position: relative;
     }
   }
- 
 }

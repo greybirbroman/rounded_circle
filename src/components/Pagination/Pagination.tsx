@@ -5,7 +5,7 @@ import useIsMobileResolution from '../../utils/hooks/useIsMobile';
 
 type PaginationProps = {
   currentPage: number | undefined;
-  totalPages: number;
+  totalPages: number | null;
 };
 
 const Pagination = ({ currentPage, totalPages }: PaginationProps) => {

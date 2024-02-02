@@ -4,6 +4,7 @@ import { events as data } from '../utils';
 
 interface EventsContextProps {
   events: IEvent[];
+  totalEvents: number | null;
   selectedEvent: IEvent | null;
   setSelectedEvent: React.Dispatch<React.SetStateAction<IEvent | null>>;
   findEventByIndex: (index: number) => void;
@@ -16,6 +17,8 @@ export const EventsContextProvider = ({ children }: {children: React.ReactNode})
   const [events, setEvents] = useState<IEvent[]>(data);
   const [selectedEvent, setSelectedEvent] = useState<IEvent | null>(events[0]);
 
+  const totalEvents = events.length
+
   const findEventByIndex = (index: number) => {
     const event =  events.find((event) => event.id === index);
     setSelectedEvent(event!)
@@ -23,6 +26,7 @@ export const EventsContextProvider = ({ children }: {children: React.ReactNode})
 
   const contextValues: EventsContextProps = {
     events,
+    totalEvents,
     selectedEvent,
     setSelectedEvent,
     findEventByIndex
