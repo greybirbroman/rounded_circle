@@ -1,10 +1,10 @@
 import './App.scss';
-import HistoryDate from '../../pages/HistoryDate/HistoryDate';
+import HistoryDatesPage from '../../pages/HistoryDatesPage/HistoryDatesPage';
 
 function App() {
   return (
     <div className="App">
-      <HistoryDate />
+      <HistoryDatesPage />
     </div>
   );
 }

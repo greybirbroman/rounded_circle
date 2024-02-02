@@ -3,6 +3,7 @@
 .page__container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   align-self: start;
   margin-left: -80px;
   gap: 78px;
@@ -12,7 +13,7 @@
     margin: 0;
     padding: 0;
     width: 353px;
-    color: $blue-black;
+    color: $primary-color;
     font-family: $font-primary;
     font-size: 56px;
     font-style: normal;

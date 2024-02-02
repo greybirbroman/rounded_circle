@@ -1,5 +1,5 @@
-import HistoryDate from "./HistoryDate/HistoryDate";
+import HistoryDatesPage from "./HistoryDatesPage/HistoryDatesPage";
 
 export {
-    HistoryDate
+    HistoryDatesPage
 }

@@ -15,26 +15,26 @@
   // max-width: 1400px;
 
   > :nth-child(1) {
-    border: 1px solid $blue-black-opacity;
+    border: 1px solid $primary-color-opacity;
     border-top: none;
     border-right: none;
     border-bottom: none;
   }
 
   > :nth-child(2) {
-    border: 1px solid $blue-black-opacity;
+    border: 1px solid $primary-color-opacity;
     border-top: none;
     border-bottom: none;
   }
 
   > :nth-child(3) {
-    border: 1px solid $blue-black-opacity;
+    border: 1px solid $primary-color-opacity;
     border-right: none;
     border-bottom: none;
   }
 
   > :nth-child(4) {
-    border: 1px solid $blue-black-opacity;
+    border: 1px solid $primary-color-opacity;
     border-bottom: none;
   }
   @media screen and (max-width: 992px) {

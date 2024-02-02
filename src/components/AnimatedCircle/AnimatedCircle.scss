@@ -1,7 +1,7 @@
 @import '../../styles/variables.scss';
 
 .dot-category {
-  color: $blue-black;
+  color: $primary-color;
   font-family: $font-primary;
   font-size: 20px;
   font-style: normal;
@@ -16,7 +16,7 @@
 }
 
 .circle {
-  border: 1px solid $blue-black-opacity;
+  border: 1px solid $primary-color-opacity;
   background-color: transparent;
   border-radius: 50%;
   position: absolute;
@@ -43,8 +43,8 @@
       font-size: 20px;
       line-height: 30px;
       font-family: $font-primary;
-      background-color: $blue-black;
-      color: $blue-black;
+      background-color: $primary-color;
+      color: $primary-color;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -76,7 +76,7 @@
         &::before {
           width: 56px;
           height: 56px;
-          border: 1px solid $blue-black-dark;
+          border: 1px solid $primary-color-dark;
         }
       }
     }

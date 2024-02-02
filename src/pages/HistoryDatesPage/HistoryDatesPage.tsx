@@ -1,4 +1,4 @@
-import './HistoryDate.scss';
+import './HistoryDatesPage.scss';
 import PageWrapper from '../../hoc/PageWrapper';
 import {
   AnimatedTimePeriodBar,
@@ -10,7 +10,7 @@ import {
 } from '../../components';
 import { useEvents } from '../../context/EventsContext';
 
-const HistoryDate = () => {
+const HistoryDatesPage = () => {
   const { totalEvents, selectedEvent } = useEvents();
   const selectedPeriodEvents = selectedEvent ? selectedEvent.list : [];
 
@@ -23,8 +23,9 @@ const HistoryDate = () => {
         to={selectedEvent?.year_to}
       />
       <Devider />
-      {/* { numberOfDots устанавливаем по количеству евентов,
-          по заданию от 2 до 6. В данном случае ограничений не установленно. Демонстрация с 6 событиями. } */}
+      {/* { numberOfDots устанавливаем по количеству евентов.
+          По заданию от 2 до 6. В данном случае ограничений не установленно.
+          Демонстрация с 6 событиями. } */}
       {/* { circleRadius устанавливаем согласшно ширине макета / 2 } */}
       <AnimatedCircle numberOfDots={totalEvents} circleRadius={265} />
       <SwiperCards list={selectedPeriodEvents} />
@@ -32,4 +33,4 @@ const HistoryDate = () => {
   );
 };
 
-export default PageWrapper(HistoryDate);
+export default PageWrapper(HistoryDatesPage);
