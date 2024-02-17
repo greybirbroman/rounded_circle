@@ -1,13 +1,14 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .year__container {
+  @include fluid-text(56, 200);
   max-width: 973px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: $font-primary;
-  font-size: 200px;
   font-style: normal;
   font-weight: 700;
   line-height: 160px; /* 80% */
@@ -28,8 +29,6 @@
   }
 
   @media screen and (max-width: 992px) {
-    max-width: 350px;
-    font-size: 76px;
     position: relative;
     top: 0;
     left: 0;
@@ -37,8 +36,6 @@
   }
 
   @media screen and (max-width: 500px) {
-    max-width: 273px;
-    font-size: 56px;
     line-height: normal;
     letter-spacing: -1.12px;
   }
